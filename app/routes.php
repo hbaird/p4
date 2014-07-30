@@ -16,6 +16,25 @@ Route::get('/', function() {
 	return View::make('index');				
 });
 
+
+
+/*****Debugging environments*******/
+
+//Get environmnet
+Route::get('/get-environment',function() {
+
+    echo "Environment: ".App::environment();
+
+});
+
+//Check error reporting
+Route::get('/trigger-error',function() {
+
+    # Class Foobar should not exist, so this should create an error
+    $foo = new Foobar;
+
+});
+
 Route::get('mysql-test', function() {
 
     # Use the DB component to select all the databases
@@ -25,6 +44,8 @@ Route::get('mysql-test', function() {
     return Pre::render($results);
 
 });
+
+/******************************************/
 
 # List crocodilians/search results of crocodilians
 Route::get('/list/{format?}', function($format = 'html') {
@@ -164,7 +185,7 @@ Route::get('/practice-create', function() {
 	$crocodilian->save();
 
 
-	return "Added a new croc";
+	return "You added a new croc.";
 
 
 });
@@ -194,7 +215,7 @@ Route::get('/practice-update', function() {
 	$crocodilian = Crocodilian::find(1);
 
 
-	$crocodilian->name = 'American Alligator';
+	$crocodilian->name = 'Chomper';
 
 
 	$crocodilian->save();
@@ -208,13 +229,13 @@ Route::get('/practice-update', function() {
 Route::get('/practice-delete', function() {
 
 
-	$crocodilian = Crocodilian::find(2);
+	$crocodilian = Crocodilian::find(1);
 
 
 	$crocodilian->delete();
 
 
-	echo "This croc has been deleted";
+	echo "This croc has been deleted.";
 
 
 });
