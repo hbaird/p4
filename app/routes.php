@@ -150,14 +150,14 @@ Route::get('/practice-create', function() {
 
 
 	# Instantiate the crocodilian model
-	$book = new Book();
+	$crocodilian = new Crocodilian();
 
 
-	$crocodilian->name = '';
-	$crocodilian->species = '';
-	$crocodilian->origin = '';
-	$crocodilian->appearance = '';
-	$crocodilian->image = '';
+	$crocodilian->name = 'American Alligator';
+	$crocodilian->species = 'Official Name: Alligator mississippiensis';
+	$crocodilian->region = 'Most Commonly Inhabited Regions: Southeastern United States: Alabama, Arkansas, North & South Carolina, Florida, Georgia, Louisiana, Mississippi, Oklahoma, Texas';
+	$crocodilian->appearance = 'Size: The adult male averages 3.4 meters long and weighs over 500 pounds. The adult female averages 2.6 meters and weights slightly more than 200 pounds.';
+	$crocodilian->image = '../public/images/americanall2.jpg';
 
 
 	# Magic: Eloquent
