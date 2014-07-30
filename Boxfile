@@ -21,6 +21,7 @@ web1:
   after_deploy:
     - "rm -f app/storage/cache/*"
     - "rm -f app/storage/views/*"
+    - "php artisan migrate"
 db1:  
   name: crocodilians  
   type: mysql
