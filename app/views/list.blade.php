@@ -24,7 +24,7 @@
 	<br><br>
 
 
-	@if(!empty(trim($query)))
+	@if(!isset(trim($query)))
 		<p>You searched for <strong>{{{ $query }}}</strong></p>
 
 
