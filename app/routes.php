@@ -105,11 +105,11 @@ Route::get('/list/{format?}', function($format = 'html') {
 	if($query) {
 
 
-				# Here's a better option because it searches across multiple fields
-		$crocodilians = Crocodilian::where('species', 'LIKE', "%$query%")
-			->orWhere('name', 'LIKE', "%$query%")
-			->orWhere('image', 'LIKE', "%$query%")
-			->get();
+	# Here's a better option because it searches across multiple fields
+	$crocodilians = Crocodilian::where('species', 'LIKE', "%$query%")
+		->orWhere('name', 'LIKE', "%$query%")
+		->orWhere('image', 'LIKE', "%$query%")
+		->get();
 
 
 	}
