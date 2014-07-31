@@ -6,7 +6,7 @@ return array(
 
         'mysql' => array(
             'driver'    => 'mysql',
-            'host'      => '127.0.0.1',
+            'host'      => 'localhost',
             'database'  => 'crocodilians',
             'username'  => 'zenia',
             'password'  => 'vULGgP2I',
