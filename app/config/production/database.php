@@ -6,10 +6,10 @@ return array(
 
         'mysql' => array(
             'driver'    => 'mysql',
-            'host'      => '127.0.0.1',
-            'database'  => 'crocodilians',
-            'username'  => 'hbaird',
-            'password'  => 'Harvard1der',
+            'host'      => '127.12.199.130',
+            'database'  => 'p4',
+            'username'  => 'admin4rVJjDX',
+            'password'  => 'g9lggusp_Hfs',
         ),
 
     ),
