@@ -24,7 +24,7 @@
 	<br><br>
 
 
-	@if(!isset(trim($query)))
+	@if(null !== trim($query))
 		<p>You searched for <strong>{{{ $query }}}</strong></p>
 
 
@@ -47,7 +47,7 @@
 			<h2>{{ $crocodilian['name'] }}</h2>
 
 
-			 {{ $crocodilian['species'] }}
+			 <h4>{{ $crocodilian['species'] }}</h4>
 
 			
 			<p>

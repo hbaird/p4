@@ -1,5 +1,6 @@
 body {
 	padding:20px;
+	width: 80%;
 }
 
 
@@ -12,6 +13,7 @@ body {
 
 section {
 	min-height:200px;
+	padding: 1em;
 }
 
 
@@ -22,6 +24,7 @@ h2 {
 
 .image {
 	float:right;
+	padding: 1em;
 	margin-right:10px;
 }
 
