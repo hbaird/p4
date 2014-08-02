@@ -225,7 +225,7 @@ Route::get('/practice-create', function() {
 	$crocodilian->species = 'Official Name: Alligator mississippiensis';
 	$crocodilian->region = 'Most Commonly Inhabited Regions: Southeastern United States: Alabama, Arkansas, North & South Carolina, Florida, Georgia, Louisiana, Mississippi, Oklahoma, Texas';
 	$crocodilian->appearance = 'Size: The adult male averages 3.4 meters long and weighs over 500 pounds. The adult female averages 2.6 meters and weights slightly more than 200 pounds.';
-	$crocodilian->image = 'http://localhost/images/americanall2.jpg';
+	$crocodilian->image = 'http://p4-hbaird.rhcloud.com/images/americanall2.jpg';
 
 
 	# Magic: Eloquent
