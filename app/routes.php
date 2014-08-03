@@ -138,17 +138,17 @@ Route::get('/list/{format?}', function($format = 'html') {
 
 # Display add form
 Route::get('/add/', 
-	array( 
-		'before' => 'auth', function() {
+	/*array( 
+		'before' => 'auth',*/ function() {
 
 			return View::make('add');
 
-}));
+})/*)*/;
 
 # Process add form
 Route::post('/add/', 
-	array(
-        'before' => 'auth', function() {
+	/*array(
+        'before' => 'auth',*/ function() {
 
 
 	//echo Pre::render(Input::all());
@@ -175,7 +175,7 @@ Route::post('/add/',
 
 	return "Added a new croc";
 
-}));
+})/*)*/;
 
 # Quickly seed books table for demonstration purposes
 Route::get('/seed', function() {
