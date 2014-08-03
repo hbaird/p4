@@ -92,6 +92,17 @@ Route::get('/debug', function() {
 });
 
 
+Route::get('/mysql-connection-test', function() {
+
+
+	$results = DB::select('SHOW DATABASES;');
+
+
+	return Pre::render($results, 'Results');
+
+
+});
+
 /******************************************/
 
 # List crocodilians/search results of crocodilians
@@ -196,16 +207,7 @@ Route::get('/seed', function() {
 
 }); 
 
-Route::get('/mysql-connection-test', function() {
 
-
-	$results = DB::select('SHOW DATABASES;');
-
-
-	return Pre::render($results, 'Results');
-
-
-});
 
 Route::get('/practice-create', function() {
 
@@ -270,7 +272,7 @@ Route::get('/practice-update', function() {
 Route::get('/practice-delete', function() {
 
 
-	$croc = Croc::find(1);
+	$croc = Croc::find(2);
 
 
 	$croc->delete();

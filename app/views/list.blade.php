@@ -41,7 +41,7 @@
 
 		<section>
 			
-			<img class='image' src='{{ $croc['image'] }}'>
+			<img class='image' src="{{ $croc['image'] }}">
 
 
 			<h2>{{ $croc['name'] }}</h2>
@@ -50,7 +50,7 @@
 			 <h4>{{ $croc['family'] }}</h4>
 
 			<p>
-				Official Name{{ $croc['species'] }}
+				Official Name: {{ $croc['species'] }}
 			</p>
 
 			<p>
