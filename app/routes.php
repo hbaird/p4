@@ -272,7 +272,7 @@ Route::get('/practice-update', function() {
 Route::get('/practice-delete', function() {
 
 
-	$croc = Croc::find(2);
+	$croc = Croc::find(3);
 
 
 	$croc->delete();
