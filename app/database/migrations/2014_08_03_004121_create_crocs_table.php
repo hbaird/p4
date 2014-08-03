@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCrocodiliansTable extends Migration {
+class CreateCrocsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateCrocodiliansTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('crocodilians', function($table) {
+		Schema::create('crocs', function($table) {
 
 
 			# AI Primary key
@@ -24,12 +24,14 @@ class CreateCrocodiliansTable extends Migration {
 
 
 			$table->string('name');
+			$table->string('family');
 			$table->string('species');
-			$table->string('region');
+			$table->string('habitat');
 			$table->string('appearance');
-			$table->binary('image');
-
-
+			$table->string('image');
+			$table->text('fact1');
+			$table->text('fact2');
+			$table->text('fact3');
 
 
 		});
@@ -42,7 +44,7 @@ class CreateCrocodiliansTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('crocodilians');
+		Schema::drop('crocs');
 	}
 
 }
