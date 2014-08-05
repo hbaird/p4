@@ -17,24 +17,11 @@
 
 
 	View as:
-	<a href='/list/json' target='_blank'>JSON</a> | 
-	<a href='/list/pdf' target='_blank'>PDF</a>
+	<a href='/crocodiles/json' target='_blank'>JSON</a> | 
+	<a href='/crocodiles/pdf' target='_blank'>PDF</a>
 
 
 	<br><br>
-
-
-	@if(null !== trim($query))
-		<p>You searched for <strong>{{{ $query }}}</strong></p>
-
-
-		@if(count($crocs) == 0)
-			<p>No matches found</p>
-		@endif
-
-
-	@endif
-
 
 	@foreach($crocs as $name => $croc)
 

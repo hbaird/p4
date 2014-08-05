@@ -2,7 +2,7 @@
 
 
 @section('title')
-	Add a New Croc
+	Add a new croc
 @stop
 
 
@@ -12,47 +12,30 @@
 	<h1>Add a New Croc</h1>
 
 
+	<div class="add">
+
+	{{ Form::open(array('url' => '/add', 'method' => 'POST')) }}
 
 
-	{{ Form::open(array('url' => '/croc/create', 'method' => 'POST')) }}
+		Name: {{ Form::text('name') }} <br><br>
+		Family: {{ Form::text('family') }} <br><br>
+		Species: {{ Form::text('species') }} <br><br>
+		Habitat: {{ Form::text('habitat') }} <br><br>
+		Appearance: {{ Form::text('appearance') }} <br><br>
+		Image: {{ Form::text('image') }} <br><br>
+
+		Add some interesting facts:<br><br>
+		Fact: {{ Form::text('fact1') }} <br><br>
+		Fact: {{ Form::text('fact2') }} <br><br>
+		Fact: {{ Form::text('fact3') }} <br><br>
 
 
-		<div class='form-group'>
-			{{ Form::label('name') }} 
-			{{ Form::text('name') }}
-		</div>
-
-
-		<div class='form-group'>
-			{{ Form::label('species') }} 
-			{{ Form::text('species') }}
-		</div>
-
-
-		<div class='form-group'>
-			{{ Form::label('region') }} 
-			{{ Form::text('region') }}
-		</div>
-
-
-		<div class='form-group'>
-			{{ Form::label('appearance') }} 
-			{{ Form::text('appearance') }}
-		</div>
-
-
-		<div class='form-group'>
-			{{ Form::label('image','Image URL') }} 
-			{{ Form::text('image') }}
-		</div>
-
-		
-		{{ Form::submit('Add') }}
+		{{ Form::submit('Save!') }}<br>
 
 
 	{{ Form::close() }}
 
-
+	</div>
 
 
 @stop

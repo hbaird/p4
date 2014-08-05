@@ -74,7 +74,6 @@
 				{{ $croc['fact3'] }}
 			</p>
 
-			Id: {{ $croc['id'] }}
 
 		</section>
 

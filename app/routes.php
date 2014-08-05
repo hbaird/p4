@@ -42,7 +42,6 @@ Route::get('/list/{format?}', function($format = 'html') {
 	if($query) {
 
 
-	# Here's a better option because it searches across multiple fields
 	$crocs = Croc::where('species', 'LIKE', "%$query%")
 		->orWhere('name', 'LIKE', "%$query%")
 		->orWhere('image', 'LIKE', "%$query%")
@@ -73,22 +72,107 @@ Route::get('/list/{format?}', function($format = 'html') {
 });
 
 
+/**********************************************************************
+				Route to Alligators
+**********************************************************************/
+Route::get('/alligators', function() {
+
+	# Format and Query are passed as Query Strings
+	$format = Input::get('format', 'html');
+
+	$crocs = Croc::where('family', 'LIKE', "%Alligatoridae%")
+		->get();
+
+	# Decide on output method...
+	# Default - HTML
+	if($format == 'html') {
+		return View::make('family_index')
+			->with('crocs', $crocs);
+	}
+	# JSON
+	elseif($format == 'json') {
+		return Response::json($crocs);
+	}
+	# PDF (Coming soon)
+	elseif($format == 'pdf') {
+		return "This is the pdf (Coming soon).";
+	}	
+});
+
+
+/**********************************************************************
+				Route to Crocodiles
+**********************************************************************/
+Route::get('/crocodiles', function() {
+
+	# Format and Query are passed as Query Strings
+	$format = Input::get('format', 'html');
+
+	$crocs = Croc::where('family', 'LIKE', "%Crocodylidae%")
+		->get();
+
+	# Decide on output method...
+	# Default - HTML
+	if($format == 'html') {
+		return View::make('family_index')
+			->with('crocs', $crocs);
+	}
+	# JSON
+	elseif($format == 'json') {
+		return Response::json($crocs);
+	}
+	# PDF (Coming soon)
+	elseif($format == 'pdf') {
+		return "This is the pdf (Coming soon).";
+	}	
+});
+
+
+/**********************************************************************
+				Route to Gharials
+**********************************************************************/
+Route::get('/gharials', function() {
+
+	# Format and Query are passed as Query Strings
+	$format = Input::get('format', 'html');
+
+	$crocs = Croc::where('family', 'LIKE', "%Gavialidae%")
+		->get();
+
+	# Decide on output method...
+	# Default - HTML
+	if($format == 'html') {
+		return View::make('family_index')
+			->with('crocs', $crocs);
+	}
+	# JSON
+	elseif($format == 'json') {
+		return Response::json($crocs);
+	}
+	# PDF (Coming soon)
+	elseif($format == 'pdf') {
+		return "This is the pdf (Coming soon).";
+	}	
+});
+
+
+/**********************************************************************
+				Adding crocs to the database
+**********************************************************************/
+
 # Display add form
 Route::get('/add/', 
 	/*array( 
 		'before' => 'auth',*/ function() {
 
-			return View::make('add');
+			return View::make('croc_create');
 
 })/*)*/;
 
 # Process add form
 Route::post('/add/', 
-	/*array(
-        'before' => 'auth',*/ function() {
-
-
-	//echo Pre::render(Input::all());
+	array(
+        'before' => 'auth', function() {
 
 
 	# Instantiate the croc model
@@ -110,11 +194,26 @@ Route::post('/add/',
 	$croc->save();
 
 
-	return "Added a new croc";
+	return "You added a new croc.";
 
-})/*)*/;
+}));
 
-# Quickly seed books table for demonstration purposes
+
+/*-------------------------------------------------------------------------------------------------
+# ! Croc
+Explicit Routing
+-------------------------------------------------------------------------------------------------*/
+
+Route::get('/croc', 'CrocController@getIndex');
+Route::get('/croc/edit/{id}', 'CrocController@getEdit');
+Route::post('/croc/edit/{id}', 'CrocController@postEdit');
+Route::get('/croc/create', 'CrocController@getCreate');
+Route::post('/croc/create', 'CrocController@postCreate');
+
+
+/* *************************************************************************
+		Quickly seed books table for demonstration purposes
+***************************************************************************
 Route::get('/seed', function() {
 
 
@@ -131,9 +230,11 @@ Route::get('/seed', function() {
 	return $query;
 
 
-}); 
+}); */
 
-
+/****************************************************************************
+					CRUD functions
+****************************************************************************/
 
 Route::get('/practice-create', function() {
 
@@ -198,7 +299,7 @@ Route::get('/practice-update', function() {
 Route::get('/practice-delete', function() {
 
 
-	$croc = Croc::find(3);
+	$croc = Croc::find(2);
 
 
 	$croc->delete();

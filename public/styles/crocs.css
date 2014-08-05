@@ -3,6 +3,12 @@ body {
 	width: 80%;
 }
 
+background {
+	background-image: url("http://p4-hbaird.rhcloud.com/images/americanall2.jpg"); 
+  	background-repeat:no-repeat;
+	background-attachment:fixed;
+  	font-family: ubuntu, Arial, Helvetica, sans-serif;	
+}
 
 .logo {
 	width:500px;
@@ -10,6 +16,10 @@ body {
 	display:block;
 }
 
+.container {
+	width:80%;
+	margin-bottom:50px;
+}
 
 section {
 	min-height:200px;
