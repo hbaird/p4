@@ -147,7 +147,7 @@ class CrocController extends \BaseController {
 		$croc->save();
 
 
-		return Redirect::action('CrocController@getIndex')->with('flash_message','Your changes have been saved.');
+		return Redirect::to('/list')->with('flash_message','Your changes have been saved.');
 
 
 	}
@@ -180,7 +180,7 @@ class CrocController extends \BaseController {
 		$croc->save();
 
 
-		return Redirect::action('CrocController@getIndex')->with('flash_message','Your croc has been added.');
+		return Redirect::to('/list')->with('flash_message','Your croc has been added.');
 
 
 	}
