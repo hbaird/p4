@@ -68,7 +68,12 @@ class DemoController extends BaseController {
 
 	public function crudDelete() {
 
-		$croc = Croc::find(2);
+		$croc = Croc::find(5);
+
+
+		$croc->delete();
+
+		$croc = Croc::find(6);
 
 
 		$croc->delete();

@@ -135,7 +135,8 @@ Route::post('/add/',
 
 
 
-	return "You added a new croc.";
+	return Redirect::action('CrocController@getIndex')->with('flash_message','Your croc has been added.');
+
 
 
 }));
