@@ -29,6 +29,21 @@ Route::post('/login', ['before' => 'csrf', 'uses' => 'UserController@postLogin']
 Route::get('/logout', ['before' => 'auth', 'uses' => 'UserController@getLogout'] );
 
 
+/*-------------------------------------------------------------------------------------------------
+# ! Croc
+Explicit Routing
+-------------------------------------------------------------------------------------------------*/
+
+Route::get('/croc', 'CrocController@getIndex');
+Route::get('/croc/alligators', 'CrocController@getAlligators');
+Route::get('/croc/crocodiles', 'CrocController@getCrocodiles');
+Route::get('/croc/gharials', 'CrocController@getGharials');
+Route::get('/croc/edit/{id}', 'CrocController@getEdit');
+Route::post('/croc/edit/{id}', 'CrocController@postEdit');
+Route::get('/croc/create', 'CrocController@getCreate');
+Route::post('/croc/create', 'CrocController@postCreate');
+
+
 /******************************************/
 
 # List crocodilians/search results of crocodilians
@@ -73,101 +88,19 @@ Route::get('/list/{format?}', function($format = 'html') {
 
 
 /**********************************************************************
-				Route to Alligators
-**********************************************************************/
-Route::get('/alligators', function() {
-
-	# Format and Query are passed as Query Strings
-	$format = Input::get('format', 'html');
-
-	$crocs = Croc::where('family', 'LIKE', "%Alligatoridae%")
-		->get();
-
-	# Decide on output method...
-	# Default - HTML
-	if($format == 'html') {
-		return View::make('family_index')
-			->with('crocs', $crocs);
-	}
-	# JSON
-	elseif($format == 'json') {
-		return Response::json($crocs);
-	}
-	# PDF (Coming soon)
-	elseif($format == 'pdf') {
-		return "This is the pdf (Coming soon).";
-	}	
-});
-
-
-/**********************************************************************
-				Route to Crocodiles
-**********************************************************************/
-Route::get('/crocodiles', function() {
-
-	# Format and Query are passed as Query Strings
-	$format = Input::get('format', 'html');
-
-	$crocs = Croc::where('family', 'LIKE', "%Crocodylidae%")
-		->get();
-
-	# Decide on output method...
-	# Default - HTML
-	if($format == 'html') {
-		return View::make('family_index')
-			->with('crocs', $crocs);
-	}
-	# JSON
-	elseif($format == 'json') {
-		return Response::json($crocs);
-	}
-	# PDF (Coming soon)
-	elseif($format == 'pdf') {
-		return "This is the pdf (Coming soon).";
-	}	
-});
-
-
-/**********************************************************************
-				Route to Gharials
-**********************************************************************/
-Route::get('/gharials', function() {
-
-	# Format and Query are passed as Query Strings
-	$format = Input::get('format', 'html');
-
-	$crocs = Croc::where('family', 'LIKE', "%Gavialidae%")
-		->get();
-
-	# Decide on output method...
-	# Default - HTML
-	if($format == 'html') {
-		return View::make('family_index')
-			->with('crocs', $crocs);
-	}
-	# JSON
-	elseif($format == 'json') {
-		return Response::json($crocs);
-	}
-	# PDF (Coming soon)
-	elseif($format == 'pdf') {
-		return "This is the pdf (Coming soon).";
-	}	
-});
-
-
-/**********************************************************************
 				Adding crocs to the database
 **********************************************************************/
-
 # Display add form
 Route::get('/add/', 
-	/*array( 
-		'before' => 'auth',*/ function() {
+	array( 
+		'before' => 'auth', function() {
+
 
 			return View::make('croc_create');
 
-})/*)*/;
+
+}));
+
 
 # Process add form
 Route::post('/add/', 
@@ -175,8 +108,12 @@ Route::post('/add/',
         'before' => 'auth', function() {
 
 
+
+
 	# Instantiate the croc model
 	$croc = new Croc();
+
+
 
 
 	$croc->name = Input::get('name');
@@ -190,125 +127,28 @@ Route::post('/add/',
 	$croc->fact3 = Input::get('fact3');
 
 
+
+
 	# Magic: Eloquent
 	$croc->save();
 
 
+
+
 	return "You added a new croc.";
+
 
 }));
 
 
 /*-------------------------------------------------------------------------------------------------
-# ! Croc
+// ! CRUD Demo
 Explicit Routing
 -------------------------------------------------------------------------------------------------*/
-
-Route::get('/croc', 'CrocController@getIndex');
-Route::get('/croc/edit/{id}', 'CrocController@getEdit');
-Route::post('/croc/edit/{id}', 'CrocController@postEdit');
-Route::get('/croc/create', 'CrocController@getCreate');
-Route::post('/croc/create', 'CrocController@postCreate');
-
-
-/* *************************************************************************
-		Quickly seed books table for demonstration purposes
-***************************************************************************
-Route::get('/seed', function() {
-
-
-	$query = "INSERT INTO `crocs` (`created_at`, `updated_at`, `name`, 'family', `species`, `region`, `appearance`, `image`)
-	VALUES
-	('2014-07-26 21:38:00','2014-07-26 21:38:00','American Alligator', 'Alligatoridae', 'Alligator mississippiensis','Most Commonly Inhabited Regions: Southeastern United States: Alabama, Arkansas, North & South Carolina, Florida, Georgia, Louisiana, Mississippi, Oklahoma, Texas', 'Size: The adult male averages 3.4 meters long and weighs over 500 pounds. The adult female averages 2.6 meters and weights slightly more than 200 pounds.','/public/images/americanall2.jpg'),
-	('2014-07-26 21:38:00','2014-07-26 21:38:00','Spectacled Caiman', 'Alligatoridae','Caiman crocodilus','Most Commonly Inhabited Regions: Brazil, Colombia, Costa Rica, Ecuador, El Salvador, Guyana, French Guiana, Guatemala, Honduras, Mexico, Nicaragua, Panama, Peru, Suriname, Tobago, Trinidad, and Venezuela', 'Size: The adult male averages 2 to 2.5 meters long. The adult female averages 1.4 meters. Most adults weigh between 15 and 88 pounds.','/public/images/speccaiman2.jpg'),
-	";
-
-
-	DB::statement($query);
-
-
-	return $query;
-
-
-}); */
-
-/****************************************************************************
-					CRUD functions
-****************************************************************************/
-
-Route::get('/practice-create', function() {
-
-
-	# Instantiate the crocodilian model
-	$croc = new Croc();
-
-
-	$croc->name = 'American Alligator';
-	$croc->family = 'Alligatoridae';
-	$croc->species = 'Official Name: Alligator mississippiensis';
-	$croc->habitat = 'Most Commonly Inhabited Regions: Southeastern United States: Alabama, Arkansas, North & South Carolina, Florida, Georgia, Louisiana, Mississippi, Oklahoma, Texas';
-	$croc->appearance = 'Size: The adult male averages 3.4 meters long and weighs over 500 pounds. The adult female averages 2.6 meters and weights slightly more than 200 pounds.';
-	$croc->image = 'http://p4-hbaird.rhcloud.com/images/americanall2.jpg';
-
-
-	# Magic: Eloquent
-	$croc->save();
-
-
-	return "You added a new croc.";
-
-
-});
-
-Route::get('/practice-read', function() {
-
-
-	//$croc = new Croc();
-
-
-	# Magic: Eloquent
-	$crocs = Croc::all();
-
-
-	# Debugging
-	foreach($crocs as $croc) {
-		echo $croc->name."<br>";
-	}
-
-
-
-
-});
-
-Route::get('/practice-update', function() {
-
-	$croc = Croc::find(1);
-
-
-	$croc->image = 'Chomper';
-
-
-	$croc->save();
-
-
-	echo "You updated a croc.";
-
-
-});
-
-Route::get('/practice-delete', function() {
-
-
-	$croc = Croc::find(2);
-
-
-	$croc->delete();
-
-
-	echo "This croc has been deleted.";
-
-
-});
+Route::get('/crud-create', 'DemoController@crudCreate');
+Route::get('/crud-read', 'DemoController@crudRead');
+Route::get('/crud-update', 'DemoController@crudUpdate');
+Route::get('/crud-delete', 'DemoController@crudDelete');
 
 
 /*-------------------------------------------------------------------------------------------------

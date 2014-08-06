@@ -4,7 +4,7 @@ body {
 }
 
 background {
-	background-image: url("http://p4-hbaird.rhcloud.com/images/americanall2.jpg"); 
+	background-image: url("http://p4-hbaird.rhcloud.com/images/background2.jpg"); 
   	background-repeat:no-repeat;
 	background-attachment:fixed;
   	font-family: ubuntu, Arial, Helvetica, sans-serif;	
@@ -17,7 +17,7 @@ background {
 }
 
 .container {
-	width:80%;
+	width:90%;
 	margin-bottom:50px;
 }
 
@@ -35,6 +35,9 @@ p {
 	margin:1.5em;
 }
 
+.crud {
+	float: right;
+}
 .image {
 	float:right;
 	padding: 1em;

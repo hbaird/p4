@@ -16,7 +16,7 @@
 
 	There are three families of the order of Crocodilia: Crocodylidae, Alligatoridae, and Gavialidae.<br>
 	You might know them by their more common names: 
-	<a href='/crocodiles'>crocodiles</a>, <a href='/alligators'>alligators</a>, and the funny-looking <a href='/gharials'>gharials</a>. <br> <br>
+	<a href='/croc/crocodiles'>crocodiles</a>, <a href='/croc/alligators'>alligators</a>, and the funny-looking <a href='/croc/gharials'>gharials</a>. <br> <br>
 
 	<a href='/list'>View all Crocs</a><br> 
 	
@@ -25,7 +25,7 @@
 	<br><br>
 
 
-	{{ Form::open(array('url' => '/list', 'method' => 'GET')) }}
+	{{ Form::open(array('action' => 'CrocController@getIndex', 'method' => 'GET')) }}
 
 
 		{{ Form::label('query','Search for crocodilians:') }} &nbsp;

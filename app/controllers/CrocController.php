@@ -117,9 +117,6 @@ class CrocController extends \BaseController {
 	}
 
 
-
-
-
 	/*-------------------------------------------------------------------------------------------------
 	
 	-------------------------------------------------------------------------------------------------*/
@@ -161,31 +158,9 @@ class CrocController extends \BaseController {
 	-------------------------------------------------------------------------------------------------*/
 	public function getCreate() {
 
+		return View::make('croc_create');
 
-	# Instantiate the croc model
-	$croc = new Croc();
-
-
-	$croc->name = Input::get('name');
-	$croc->family = Input::get('family');
-	$croc->species = Input::get('species');
-	$croc->habitat = Input::get('habitat');
-	$croc->appearance = Input::get('appearance');
-	$croc->image = Input::get('image');
-	$croc->fact1 = Input::get('fact1');
-	$croc->fact2 = Input::get('fact2');
-	$croc->fact3 = Input::get('fact3');
-
-
-	# Magic: Eloquent
-	$croc->save();
-
-
-	return "Added a new croc";
 	}
-
-
-
 
 	/*-------------------------------------------------------------------------------------------------
 	
@@ -210,5 +185,88 @@ class CrocController extends \BaseController {
 
 	}
 
+	/*-------------------------------------------------------------------------------------------------
+	
+	-------------------------------------------------------------------------------------------------*/
+	public function getAlligators() {
 
+
+		# Format and Query are passed as Query Strings
+		$format = Input::get('format', 'html');
+
+		$crocs = Croc::where('family', 'LIKE', "%Alligatoridae%")
+			->get();
+
+		# Decide on output method...
+		# Default - HTML
+		if($format == 'html') {
+			return View::make('family_index')
+				->with('crocs', $crocs);
+		}
+		# JSON
+		elseif($format == 'json') {
+			return Response::json($crocs);
+		}
+		# PDF (Coming soon)
+		elseif($format == 'pdf') {
+			return "This is the pdf (Coming soon).";
+		}
+
+	}
+
+	/*-------------------------------------------------------------------------------------------------
+	
+	-------------------------------------------------------------------------------------------------*/
+	public function getCrocodiles() {
+
+		# Format and Query are passed as Query Strings
+		$format = Input::get('format', 'html');
+
+		$crocs = Croc::where('family', 'LIKE', "%Crocodylidae%")
+			->get();
+
+		# Decide on output method...
+		# Default - HTML
+		if($format == 'html') {
+			return View::make('family_index')
+				->with('crocs', $crocs);
+		}
+		# JSON
+		elseif($format == 'json') {
+			return Response::json($crocs);
+		}
+		# PDF (Coming soon)
+		elseif($format == 'pdf') {
+			return "This is the pdf (Coming soon).";
+		}
+
+	}
+
+	/*-------------------------------------------------------------------------------------------------
+	
+	-------------------------------------------------------------------------------------------------*/
+	public function getGharials() {
+
+		# Format and Query are passed as Query Strings
+		$format = Input::get('format', 'html');
+
+		$crocs = Croc::where('family', 'LIKE', "%Gavialidae%")
+			->get();
+
+		# Decide on output method...
+		# Default - HTML
+		if($format == 'html') {
+			return View::make('family_index')
+				->with('crocs', $crocs);
+		}
+		# JSON
+		elseif($format == 'json') {
+			return Response::json($crocs);
+		}
+		# PDF (Coming soon)
+		elseif($format == 'pdf') {
+			return "This is the pdf (Coming soon).";
+		}
+
+	}
 }

@@ -17,8 +17,8 @@
 
 
 	View as:
-	<a href='/crocodiles/json' target='_blank'>JSON</a> | 
-	<a href='/crocodiles/pdf' target='_blank'>PDF</a>
+	<a href='/croc/json' target='_blank'>JSON</a> | 
+	<a href='/croc/pdf' target='_blank'>PDF</a>
 
 
 	<br><br>

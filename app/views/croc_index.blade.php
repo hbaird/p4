@@ -17,8 +17,8 @@
 
 
 	View as:
-	<a href='/list/json' target='_blank'>JSON</a> | 
-	<a href='/list/pdf' target='_blank'>PDF</a>
+	<a href='/croc/json' target='_blank'>JSON</a> | 
+	<a href='/croc/pdf' target='_blank'>PDF</a>
 
 
 	<br><br>
@@ -74,6 +74,7 @@
 				{{ $croc['fact3'] }}
 			</p>
 
+			Id: {{ $croc['id'] }}
 
 		</section>
 
