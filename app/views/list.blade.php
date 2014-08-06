@@ -39,7 +39,7 @@
 	@foreach($crocs as $name => $croc)
 
 
-		<section>
+		<section class="croc">
 			
 			<img class='image' src="{{ $croc['image'] }}">
 

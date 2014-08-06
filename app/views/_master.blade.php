@@ -23,15 +23,15 @@
 	@endif
 
 	@if(Auth::check())
-		<div class="crud">
+		<div class="menu">
 		<a href='/logout'>Log out {{ Auth::user()->email; }}</a><br>
 		<a href='/croc/create'>Add a Croc</a><br>
 		<a href='/croc/edit'>Edit a Croc</a><br>
 		CRUD functions: Deletion Pending!<br>
-		<a href='/croc/edit'>Create</a>   
-		<a href='/croc/edit'>Read</a>   
-		<a href='/croc/edit'>Update</a>   
-		<a href='/croc/edit'>Delete</a>
+		<a href='/crud-create'>Create</a>   
+		<a href='/crud-read'>Read</a>   
+		<a href='/crud-update'>Update</a>   
+		<a href='/crud-delete'>Delete</a>
 		</div>
 
 	@else 
@@ -41,7 +41,6 @@
 	<br>
 
 	<a href='/'>Home</a><br>
-	<a href='/add'>Add a Croc</a><br>
 
 	<br>
 

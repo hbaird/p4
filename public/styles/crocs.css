@@ -4,7 +4,7 @@ body {
 }
 
 background {
-	background-image: url("http://p4-hbaird.rhcloud.com/images/background2.jpg"); 
+	background-image: url("../images/background2.jpg"); 
   	background-repeat:no-repeat;
 	background-attachment:fixed;
   	font-family: ubuntu, Arial, Helvetica, sans-serif;	
@@ -17,7 +17,7 @@ background {
 }
 
 .container {
-	width:90%;
+	width:100%;
 	margin-bottom:50px;
 }
 
@@ -35,9 +35,10 @@ p {
 	margin:1.5em;
 }
 
-.crud {
+.menu {
 	float: right;
 }
+
 .image {
 	float:right;
 	clear: all;
@@ -45,7 +46,10 @@ p {
 	margin-right:10px;
 }
 
+.croc {
+	border-bottom: 
 }
+
 a:link, a:visited, a:active, a:hover {
 	text-decoration:underline;
 }
@@ -55,7 +59,7 @@ a:link, a:visited, a:active, a:hover {
 	position:absolute;
 	top:0;
 	left:0;
-	background-color:yellow;
+	background-color:green;
 	text-align:center;
 	padding:5px;
 }

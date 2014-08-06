@@ -32,12 +32,14 @@ class DemoController extends BaseController {
 		$croc->save();
 
 
-		return "You added a new croc.";
+		return Redirect::to('/list')->with('flash_message','Your croc has been added.');
+
 	}
 
 
 	public function crudRead () {
 
+		
 		# Magic: Eloquent
 		$crocs = Croc::all();
 
@@ -46,6 +48,7 @@ class DemoController extends BaseController {
 		foreach($crocs as $croc) {
 			echo $croc->name."<br>";
 		}
+
 
 	}
 
@@ -61,25 +64,20 @@ class DemoController extends BaseController {
 		$croc->save();
 
 
-		echo "You updated a croc.";
+		return Redirect::to('/list')->with('flash_message','Your croc has been updated.');
 	
 	}
 
 
 	public function crudDelete() {
 
-		$croc = Croc::find(5);
-
-
-		$croc->delete();
-
-		$croc = Croc::find(6);
+		$croc = Croc::find(13);
 
 
 		$croc->delete();
 
 
-		echo "This croc has been deleted.";
+		return Redirect::to('/list')->with('flash_message','Your croc has been deleted.');
 		
 	}
 
