@@ -10,6 +10,9 @@ background {
   	font-family: ubuntu, Arial, Helvetica, sans-serif;	
 }
 
+
+
+/* css for Crocodilia logo */
 .logo {
   margin: 2em;
   text-align: center;
@@ -24,16 +27,41 @@ background {
 .logo > a:active {color:#00bf00; text-decoration: none;} 
 
 
+
+/* link css */
 a:link, a:visited, a:active, a:hover {
 	color: #00bf00;
 }
 
+
+
+/* search box css */
 .search {
 	margin: 2em 1em 0 0;
   	padding: 1em 0 4em 0;
 	float: right;
 }
 
+
+/* navigation css */
+.nav {
+	float: right;
+	margin: 1em;
+}
+
+
+
+/* image css */
+.image {
+	float:right;
+	clear: all;
+	padding: 1em;
+	margin-right:10px;
+}
+
+
+
+/* content css */
 section {
 	min-height:200px;
 	padding: 1em;
@@ -47,18 +75,6 @@ p {
 	margin:1.5em;
 }
 
-.nav {
-	float: right;
-	margin: 1em;
-}
-
-.image {
-	float:right;
-	clear: all;
-	padding: 1em;
-	margin-right:10px;
-}
-
 .croc {
 	border-bottom: 2px solid #00bf00; 
 }
@@ -66,6 +82,10 @@ p {
 form {
 	margin: 1em;
 }
+
+
+
+/* flash message css */
 .flash-message {
 	width:100%;
 	position:absolute;
@@ -86,6 +106,8 @@ label {
 .error {
 	color:red;
 }
+
+
 
 /* footer styling */
 footer {

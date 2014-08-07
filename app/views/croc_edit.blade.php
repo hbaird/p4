@@ -5,12 +5,6 @@
 	Edit Croc
 @stop
 
-@section('head')
-	<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="styles/crocs.css" type="text/css">
-@stop
-
 @section('content')
 
 
