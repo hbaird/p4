@@ -7,7 +7,6 @@
 
 
 	<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="styles/crocs.css" type="text/css">
 
 
@@ -17,6 +16,8 @@
 </head>
 
 <body class="container">
+
+	<div class="row">
 
 	<div span="4">
 			@if(Session::get('flash_message'))
@@ -52,22 +53,21 @@
 
 				{{ Form::close() }}
 			</div>
-		</div>
+	</div>
 
-	
-		<div span="8">
 
-			<a href='/'><h1 class="logo">Crocodilia</h1></a><br>
+	<div span="8">
+
+		<a href='/'><h1 class="logo">Crocodilia</h1></a><br>
 
 		@yield('content')
 
 
 		@yield('body')
 
-		</div>	
+	</div>	
 
-		
-		
+	</div>
 
 	<footer>
 	</footer>
