@@ -91,7 +91,7 @@ Route::get('/list/{format?}', function($format = 'html') {
 
 
 /*-------------------------------------------------------------------------------------------------
-# ! list all of the crocs
+# ! add crocs
 
 -------------------------------------------------------------------------------------------------*/
 
@@ -164,11 +164,4 @@ Implicit
 # Implicit routing
 Route::controller('debug', 'DebugController');
 
-
-/*
-# Explicit routing
-Route::get('/debug/', 'DebugController@index');
-Route::get('/debug/trigger-error', 'Debug Controller@triggerError');
-Route::get('/debug/routes', 'DebugController@routes');
-*/
 
