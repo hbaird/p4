@@ -1,8 +1,5 @@
 @extends('_master')
 
-
-
-
 @section('head')
 	<link rel="stylesheet" href="crocs.css" type="text/css">
 @stop

@@ -7,6 +7,7 @@
 
 
 	<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="styles/crocs.css" type="text/css">
 
 
@@ -15,40 +16,61 @@
 
 </head>
 
-
 <body class="container">
 
-	@if(Session::get('flash_message'))
-		<div class='flash-message'>{{ Session::get('flash_message') }}</div>
-	@endif
+	<div span="4">
+			@if(Session::get('flash_message'))
+				<div class='flash-message'>{{ Session::get('flash_message') }}</div>
+			@endif
 
-	@if(Auth::check())
-		<div class="menu">
-		<a href='/logout'>Log out {{ Auth::user()->email; }}</a><br>
-		<a href='/croc/create'>Add a Croc</a><br>
-		<a href='/croc/edit'>Edit a Croc</a><br>
-		CRUD functions: Deletion Pending!<br>
-		<a href='/crud-create'>Create</a>   
-		<a href='/crud-read'>Read</a>   
-		<a href='/crud-update'>Update</a>   
-		<a href='/crud-delete'>Delete</a>
+			<div class="nav">
+				@if(Auth::check())
+			
+					<a href='/logout'>Log out {{ Auth::user()->email; }}</a><br>
+					<a href='/croc/create'>Add a Croc</a><br>
+					<a href='/croc/edit'>Edit a Croc</a><br>
+					CRUD functions: Deletion Pending!<br>
+					<a href='/crud-create'>Create</a>   
+					<a href='/crud-read'>Read</a>   
+					<a href='/crud-update'>Update</a>   
+					<a href='/crud-delete'>Delete</a>
+		
+
+				@else 
+				<a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>
+				@endif
+			</div>
+	
+			<div class="search">
+				{{ Form::open(array('url' => '/list', 'method' => 'GET')) }}
+
+
+					{{ Form::label('query','Search for crocodilians:') }} &nbsp;
+					{{ Form::text('query') }} &nbsp;
+					{{ Form::submit('Search!') }}
+
+
+				{{ Form::close() }}
+			</div>
 		</div>
 
-	@else 
-		<a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>
-	@endif
+	
+		<div span="8">
 
-	<br>
+			<a href='/'><h1 class="logo">Crocodilia</h1></a><br>
 
-	<a href='/'>Home</a><br>
-
-	<br>
-
-	@yield('content')
+		@yield('content')
 
 
-	@yield('body')
+		@yield('body')
 
+		</div>	
+
+		
+		
+
+	<footer>
+	</footer>
 
 </body>
 

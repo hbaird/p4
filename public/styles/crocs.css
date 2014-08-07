@@ -4,28 +4,40 @@ body {
 }
 
 background {
-	background-image: url("../images/background2.jpg"); 
+	background-color: red; 
   	background-repeat:no-repeat;
 	background-attachment:fixed;
   	font-family: ubuntu, Arial, Helvetica, sans-serif;	
 }
 
 .logo {
-	width:500px;
-	margin-bottom:20px;
-	display:block;
+  margin: 2em;
+  text-align: center;
+  color: #00BF00;
+  text-decoration: none;
+  font-family: "Segoe Script", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue",       Arial, sans-serif;  
 }
 
-.container {
-	width:100%;
-	margin-bottom:50px;
+.logo > a:link {color:#00bf00; text-decoration: none;}
+.logo > a:visited {color:#00bf00;  text-decoration: none;}  
+.logo > a:hover {color:#00bf00; text-decoration: none;}  
+.logo > a:active {color:#00bf00; text-decoration: none;} 
+
+
+a:link, a:visited, a:active, a:hover {
+	color: #00bf00;
+}
+
+.search {
+	margin: 2em 1em 0 0;
+  	padding: 1em 0 4em 0;
+	float: right;
 }
 
 section {
 	min-height:200px;
 	padding: 1em;
 }
-
 
 h2 {
 	margin:0;
@@ -35,8 +47,9 @@ p {
 	margin:1.5em;
 }
 
-.menu {
+.nav {
 	float: right;
+	margin: 1em;
 }
 
 .image {
@@ -47,19 +60,18 @@ p {
 }
 
 .croc {
-	border-bottom: 
+	border-bottom: 2px solid #00bf00; 
 }
 
-a:link, a:visited, a:active, a:hover {
-	text-decoration:underline;
+form {
+	margin: 1em;
 }
-
 .flash-message {
 	width:100%;
 	position:absolute;
 	top:0;
 	left:0;
-	background-color:green;
+	background-color: #00BF00;
 	text-align:center;
 	padding:5px;
 }
@@ -73,4 +85,10 @@ label {
 
 .error {
 	color:red;
+}
+
+/* footer styling */
+footer {
+	background-color: #00BF00;
+	min-height: 50px;
 }
