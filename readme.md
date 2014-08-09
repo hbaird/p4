@@ -15,5 +15,7 @@ email: hbaird@fas.harvard.edu.
 password: admin  
 
 ## Outside code
-Bootstrap: <http://getbootstrap.com/>
+Bootstrap: <http://getbootstrap.com/>  
+Paste/Pre from Packagist: <https://packagist.org/packages/paste/pre>  
+Laravel Debugger: <https://packagist.org/packages/barryvdh/laravel-debugbar>
 
